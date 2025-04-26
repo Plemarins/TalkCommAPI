@@ -1,0 +1,39 @@
+IML_Message
+  - Origin_ID       (string)    : Identifier of the source galaxy
+  - Message_Type    (integer)   : Category of the message (scientific, philosophical, existential, artistic, emergency)
+  - Payload         (string)    : Bit-encoded content of the message
+  - Signature       (string)    : Waveform-based identity signature
+  - Timestamp       (float64)   : Time before the merger event [in seconds]
+
+Message Types:
+  1 = Scientific
+  2 = Philosophical
+  3 = Existential
+  4 = Artistic
+  5 = Emergency
+
+Function Create_IML_Message(origin_id: string, msg_type: integer, payload_text: string, signature_pattern: string, timestamp_value: float64) -> IML_Message
+
+Function Serialize_IML_Message(msg: IML_Message) -> string
+
+Function Deserialize_IML_Message(serialized: string) -> IML_Message
+
+Subroutine Display_IML_Message(msg: IML_Message)
+
+Function Message_Type_To_String(type_id: integer) -> string
+
+1. Create a new message:
+    myMessage = Create_IML_Message("MilkyWay-GC", PHILOSOPHICAL, 
+                "What is existence beyond the stars?", 
+                "MilkyWaySignature42", 2.0E5)
+
+2. Serialize the message:
+    serialized_form = Serialize_IML_Message(myMessage)
+
+3. Transmit the serialized string over a communication channel.
+
+4. Receive the serialized string and deserialize:
+    receivedMessage = Deserialize_IML_Message(serialized_form)
+
+5. Display the received message:
+    Call Display_IML_Message(receivedMessage)
